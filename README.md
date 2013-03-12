@@ -5,9 +5,9 @@ The `rcore_ext` gem extends several core classes
 
 ## Installation
 
-Run `gem install rcore-ext` or
+To install `rcore-ext`, run `gem install rcore-ext` or
 
-To install `rcore-ext`, add the following to your `Gemfile`:
+add the following to your `Gemfile`:
 
     gem 'rcore-ext'
 
