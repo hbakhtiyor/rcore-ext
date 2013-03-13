@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in rcore_ext.gemspec
+# Specify your gem's dependencies in rcore-ext.gemspec
 gemspec
