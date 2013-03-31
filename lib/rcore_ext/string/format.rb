@@ -8,8 +8,8 @@ class String
   # Supported formats: :bin, :hex, :base32, :base64
   #
   # You can also pass options for Base64 to use
-  # * :strict
-  # * :url_safe
+  # * <tt>:strict</tt>
+  # * <tt>:url_safe</tt>
   #
   #   "hello world!".decode_string(:hex)  #=> 68656c6c6f20776f726c6421
   #   "hi".decode_string(:bin)            #=> 0110100001101001
@@ -38,8 +38,8 @@ class String
   # Supported formats: :bin, :hex, :base32, :base64
   #
   # You can also pass options for Base64 to use
-  # * :strict
-  # * :url_safe
+  # * <tt>:strict</tt>
+  # * <tt>:url_safe</tt>
   #
   #   "68656c6c6f20776f726c6421".decode_string(:hex)  #=> hello world!
   #   "0110100001101001".decode_string(:bin)          #=> hi

@@ -1,0 +1,1 @@
+require 'rcore_ext/array/compact'

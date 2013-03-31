@@ -1,14 +1,20 @@
 PATH
   remote: .
   specs:
-    rcore-ext (0.1.0)
+    rcore-ext (0.1.1)
+      activesupport
       base32
 
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (3.2.13)
+      i18n (= 0.6.1)
+      multi_json (~> 1.0)
     base32 (0.2.0)
     diff-lcs (1.2.1)
+    i18n (0.6.1)
+    multi_json (1.7.2)
     rake (10.0.3)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
