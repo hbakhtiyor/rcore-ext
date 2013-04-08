@@ -5,15 +5,17 @@ The `rcore_ext` gem extends several core classes
 
 ## Installation
 
-To install `rcore-ext`, run `gem install rcore-ext` or
-
-add the following to your `Gemfile`:
+Add this line to your application's Gemfile:
 
     gem 'rcore-ext'
 
-Then bundle install:
+And then execute:
 
-    bundle install
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install rcore-ext
 
 ## Usage
 
@@ -72,4 +74,10 @@ Examples:
 ```
 
 
-## Feel free for pull requests!
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request

@@ -22,12 +22,12 @@ describe "Hash additinal functionality" do
 
   describe "compact functionality" do
     let(:nils)      { { nil => 0, 0 => nil, 1 => 1 } }
-    let(:nils_pair) { { nil => nil, 0 => nil, 1 => 1 } }
+    let(:nils_both) { { nil => nil, 0 => nil, 1 => 1 } }
 
     let(:delete_keys)   { { 0 => nil, 1 => 1 } }
     let(:delete_values) { { nil => 0, 1 => 1 } }
-    let(:delete_both)   { { 1 => 1 } }
-    let(:delete_pair)   { { 0 => nil, 1 => 1 } }
+    let(:delete_either) { { 1 => 1 } }
+    let(:delete_both)   { { 0 => nil, 1 => 1 } }
 
     describe "not mutates itself" do
       it "with keys options" do
@@ -38,17 +38,17 @@ describe "Hash additinal functionality" do
         nils.compact(:values).should == delete_values
       end
 
-      it "with both option" do
-        nils.compact(:both).should == delete_both
+      it "with either option" do
+        nils.compact(:either).should == delete_either
       end
 
-      it "with pair option" do
-        nils_pair.compact.should == delete_pair
+      it "with both option" do
+        nils_both.compact.should == delete_both
       end
 
       it "should not mutates itself" do
-        nils_pair.compact
-        nils_pair.should_not == delete_pair
+        nils_both.compact
+        nils_both.should_not == delete_both
       end
     end
 
@@ -61,12 +61,12 @@ describe "Hash additinal functionality" do
         nils.compact!(:values).should == delete_values
       end
 
-      it "with both option" do
-        nils.compact!(:both).should == delete_both
+      it "with either option" do
+        nils.compact!(:either).should == delete_either
       end
 
-      it "with pair option" do
-        nils_pair.compact!.should == delete_pair
+      it "with both option" do
+        nils_both.compact!.should == delete_both
       end
 
       it "should return nil if no changes" do
@@ -74,8 +74,8 @@ describe "Hash additinal functionality" do
       end
 
       it "should mutates itself" do
-        nils_pair.compact!
-        nils_pair.should == delete_pair
+        nils_both.compact!
+        nils_both.should == delete_both
       end
     end
   end
@@ -86,12 +86,12 @@ describe "Hash additinal functionality" do
     let(:nested_key_nils_1) { { { nil => 0 } => { nil => nil }, nil => 0, 0 => nil, 2 => { nil => 0, 3 => { nil => 1, 4 => { nil => nil, 1 => nil }, 
                               1 => nil, 2 => 2, 3 => nil }, 0 => nil, 1 => 0, 2 => nil }, 1 => 1 } }
     let(:nested_key_nils_2) { { 1 => 2, { nil => 1 } => { 2 => nil, nil => 1 } } }
-    let(:nested_nils_pair)  { { nil => nil, 2 => { 3 => { nil => nil, 0 => nil }, nil => nil, 0 => nil }, 0 => nil, 1 => 1 } }
+    let(:nested_nils_both)  { { nil => nil, 2 => { 3 => { nil => nil, 0 => nil }, nil => nil, 0 => nil }, 0 => nil, 1 => 1 } }
 
     let(:delete_keys)   { { 0 => nil, 2 => { 3 => { 4 => { 1 => nil }, 1 => nil, 2 => 2, 3 => nil }, 0 => nil, 1 => 0, 2 => nil }, 1 => 1 } }
     let(:delete_values) { { nil => 0, 2 => { nil => 0, 3 => { nil => 1, 4 => { nil => 0 }, 2 => 2 }, 1 => 0 }, 1 => 1 } }
-    let(:delete_both)   { { 2 => { 3 => { 2 => 2 }, 1 => 0 }, 1 => 1 } }
-    let(:delete_pair)   { { 2 => { 3 => { 0 => nil }, 0 => nil }, 0 => nil, 1 => 1 } }
+    let(:delete_either) { { 2 => { 3 => { 2 => 2 }, 1 => 0 }, 1 => 1 } }
+    let(:delete_both)   { { 2 => { 3 => { 0 => nil }, 0 => nil }, 0 => nil, 1 => 1 } }
 
     describe "not mutates itself" do
       it "with keys option" do
@@ -106,25 +106,25 @@ describe "Hash additinal functionality" do
         nested_key_nils_2.deep_compact(:keys).should == {1 => 2}        
       end
 
-      it "second nested key with both option" do
-        nested_key_nils_2.deep_compact(:both).should == {1 => 2}        
+      it "second nested key with either option" do
+        nested_key_nils_2.deep_compact(:either).should == {1 => 2}        
       end
 
       it "with values option" do
         nested_nils.deep_compact(:values).should == delete_values
       end
 
-      it "with both option" do
-        nested_nils.deep_compact(:both).should == delete_both
+      it "with either option" do
+        nested_nils.deep_compact(:either).should == delete_either
       end
 
-      it "with pair option" do
-        nested_nils_pair.deep_compact.should == delete_pair
+      it "with both option" do
+        nested_nils_both.deep_compact.should == delete_both
       end
 
       it "should not mutates itself" do
-        nested_nils_pair.deep_compact
-        nested_nils_pair.should_not == delete_pair
+        nested_nils_both.deep_compact
+        nested_nils_both.should_not == delete_both
       end      
     end
 
@@ -143,21 +143,21 @@ describe "Hash additinal functionality" do
         nested_key_nils_2.deep_compact!(:keys).should == {1 => 2}        
       end
 
-      it "second nested key with both option" do
+      it "second nested key with either option" do
         pending
-        nested_key_nils_2.deep_compact!(:both).should == {1 => 2}        
+        nested_key_nils_2.deep_compact!(:either).should == {1 => 2}        
       end
 
       it "with values option" do
         nested_nils.deep_compact!(:values).should == delete_values
       end
 
-      it "with both option" do
-        nested_nils.deep_compact!(:both).should == delete_both
+      it "with either option" do
+        nested_nils.deep_compact!(:either).should == delete_either
       end
 
-      it "with pair option" do
-        nested_nils_pair.deep_compact!.should == delete_pair
+      it "with both option" do
+        nested_nils_both.deep_compact!.should == delete_both
       end
 
       it "should return nil if no changes" do
@@ -169,8 +169,8 @@ describe "Hash additinal functionality" do
       end
 
       it "should mutates itself" do
-        nested_nils_pair.deep_compact!
-        nested_nils_pair.should == delete_pair
+        nested_nils_both.deep_compact!
+        nested_nils_both.should == delete_both
       end      
     end
   end

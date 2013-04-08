@@ -9,12 +9,8 @@ class Array
   #   [1, 2, ['']].deep_compact   #=> [1, 2]
   #   [1, 2, ['  ']].deep_compact #=> [1, 2]  
   def deep_compact
-    result = []
-    each do |item|
-      item = item.deep_compact if item.is_a?(Array)
-      result << item unless item.blank?
-    end
-    result
+    result = dup.deep_compact!
+    result.nil? ? self : result
   end
 
   # Removes nil, empty and blank nested elements from the array. 

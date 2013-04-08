@@ -1,6 +1,3 @@
-require 'base64'
-require 'base32'
-
 class String
   @@common_formats = {bin: 'B*', hex: 'H*'}
   
@@ -74,14 +71,17 @@ class String
     end
 
     def base32_encode
+      require 'base32'
       Base32.encode(self)
     end
 
     def base32_decode
+      require 'base32'
       Base32.decode(self)
     end
 
     def base64_encode
+      require 'base64'
       if @options[:strict]
         Base64.strict_encode64(self)
       elsif @options[:url_safe]
@@ -92,6 +92,7 @@ class String
     end
 
     def base64_decode
+      require 'base64'
       if @options[:strict]
         Base64.strict_decode64(self)
       elsif @options[:url_safe]

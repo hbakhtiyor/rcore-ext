@@ -7,8 +7,8 @@ class Hash
   # You can also pass option to use
   # * <tt>:keys</tt> - Only remove blank keys from a hash
   # * <tt>:values</tt> - Only remove blank values from a hash
-  # * <tt>:both</tt> - Remove blank values or keys from a hash
-  # * <tt>:pair</tt> - Remove blank values and keys from a hash if both are blank 
+  # * <tt>:either</tt> - Remove blank values or keys from a hash
+  # * <tt>:both</tt> - Remove blank values and keys from a hash if both are blank 
   #  
   #   {1 => 2}.compact              #=> {1 => 2}
   #   {1 => 2, nil => ''}.compact   #=> {1 => 2}
@@ -16,8 +16,8 @@ class Hash
   #
   #   {1 => 2, nil => 1, 2 => nil}.compact(:keys)   #=> {1 => 2, 2 => nil}
   #   {1 => 2, nil => 1, 2 => nil}.compact(:values) #=> {1 => 2, nil => 1}
-  #   {1 => 2, nil => 1, 2 => nil}.compact(:both)   #=> {1 => 2}
-  #   {1 => 2, nil => 1, 2 => nil}.compact(:pair)   #=> {1 => 2, nil => 1, 2 => nil}
+  #   {1 => 2, nil => 1, 2 => nil}.compact(:either) #=> {1 => 2}
+  #   {1 => 2, nil => 1, 2 => nil}.compact(:both)   #=> {1 => 2, nil => 1, 2 => nil}
   def compact(option = nil)
     @option = option
     result = {}
@@ -33,8 +33,8 @@ class Hash
   # You can also pass option to use
   # * <tt>:keys</tt> - Only remove blank keys from a hash
   # * <tt>:values</tt> - Only remove blank values from a hash
-  # * <tt>:both</tt> - Remove blank values or keys from a hash
-  # * <tt>:pair</tt> - Remove blank values and keys from a hash if both are blank 
+  # * <tt>:either</tt> - Remove blank values or keys from a hash
+  # * <tt>:both</tt> - Remove blank values and keys from a hash if both are blank 
   #  
   #   {1 => 2}.compact!              #=> nil
   #   {1 => 2, nil => ''}.compact!   #=> {1 => 2}
@@ -42,8 +42,8 @@ class Hash
   #
   #   {1 => 2, nil => 1, 2 => nil}.compact!(:keys)   #=> {1 => 2, 2 => nil}
   #   {1 => 2, nil => 1, 2 => nil}.compact!(:values) #=> {1 => 2, nil => 1}
-  #   {1 => 2, nil => 1, 2 => nil}.compact!(:both)   #=> {1 => 2}
-  #   {1 => 2, nil => 1, 2 => nil}.compact!(:pair)   #=> {1 => 2, nil => 1, 2 => nil}    
+  #   {1 => 2, nil => 1, 2 => nil}.compact!(:either) #=> {1 => 2}
+  #   {1 => 2, nil => 1, 2 => nil}.compact!(:both)   #=> {1 => 2, nil => 1, 2 => nil}    
   def compact!(option = nil)
     @option = option; changed = false
     each_pair do |key, value|
@@ -58,8 +58,8 @@ class Hash
   # You can also pass option to use
   # * <tt>:keys</tt> - Only remove blank keys from a hash
   # * <tt>:values</tt> - Only remove blank values from a hash
-  # * <tt>:both</tt> - Remove blank values or keys from a hash
-  # * <tt>:pair</tt> - Remove blank values and keys from a hash if both are blank 
+  # * <tt>:either</tt> - Remove blank values or keys from a hash
+  # * <tt>:both</tt> - Remove blank values and keys from a hash if both are blank 
   #  
   #   {1 => 2}.deep_compact                       #=> {1 => 2}
   #   {1 => 2, nil => {nil => ''}}.deep_compact   #=> {1 => 2}
@@ -67,8 +67,8 @@ class Hash
   #
   #   {1 => 2, {nil => 1} => {2 => nil, nil => 1}}.deep_compact(:keys)   #=> {1 => 2}
   #   {1 => 2, {nil => 1} => {2 => nil, nil => 1}}.deep_compact(:values) #=> {1 => 2, {nil => 1} => {nil => 1}}
-  #   {1 => 2, {nil => 1} => {2 => nil, nil => 1}}.deep_compact(:both)   #=> {1 => 2}
-  #   {1 => 2, {nil => 1} => {2 => nil, nil => 1}}.deep_compact(:pair)   #=> {1 => 2, {nil => 1} => {2 => nil, nil => 1}}
+  #   {1 => 2, {nil => 1} => {2 => nil, nil => 1}}.deep_compact(:either) #=> {1 => 2}
+  #   {1 => 2, {nil => 1} => {2 => nil, nil => 1}}.deep_compact(:both)   #=> {1 => 2, {nil => 1} => {2 => nil, nil => 1}}
   def deep_compact(option = nil)
     @option = option
     result = {}
@@ -87,8 +87,8 @@ class Hash
   # You can also pass option to use
   # * <tt>:keys</tt> - Only remove blank keys from a hash
   # * <tt>:values</tt> - Only remove blank values from a hash
-  # * <tt>:both</tt> - Remove blank values or keys from a hash
-  # * <tt>:pair</tt> - Remove blank values and keys from a hash if both are blank 
+  # * <tt>:either</tt> - Remove blank values or keys from a hash
+  # * <tt>:both</tt> - Remove blank values and keys from a hash if both are blank 
   #  
   #   {1 => 2}.deep_compact!                       #=> {1 => 2}
   #   {1 => 2, nil => {nil => ''}}.deep_compact!   #=> {1 => 2}
@@ -96,8 +96,8 @@ class Hash
   #
   #   {1 => 2, {nil => 1} => {2 => nil, nil => 1}}.deep_compact!(:keys)   #=> {1 => 2}
   #   {1 => 2, {nil => 1} => {2 => nil, nil => 1}}.deep_compact!(:values) #=> {1 => 2, {nil => 1} => {nil => 1}}
-  #   {1 => 2, {nil => 1} => {2 => nil, nil => 1}}.deep_compact!(:both)   #=> {1 => 2}
-  #   {1 => 2, {nil => 1} => {2 => nil, nil => 1}}.deep_compact!(:pair)   #=> nil
+  #   {1 => 2, {nil => 1} => {2 => nil, nil => 1}}.deep_compact!(:either) #=> {1 => 2}
+  #   {1 => 2, {nil => 1} => {2 => nil, nil => 1}}.deep_compact!(:both)   #=> nil
   def deep_compact!(option = nil)
     @option = option; changed = false
     each_pair do |key, value|
@@ -111,15 +111,15 @@ class Hash
 
   private
     def check_for_blank?(key, value)
-      @option ||= :pair
+      @option ||= :both
       case @option.to_sym
       when :keys
         key.blank?
       when :values
         value.blank?
-      when :both
+      when :either
         key.blank? || value.blank?
-      else :pair
+      else :both
         key.blank? && value.blank?
       end
     end
