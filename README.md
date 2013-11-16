@@ -3,6 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/hbakhtiyor/rcore-ext/badge.png)](https://coveralls.io/r/hbakhtiyor/rcore-ext)
 [![Code Climate](https://codeclimate.com/github/hbakhtiyor/rcore-ext.png)](https://codeclimate.com/github/hbakhtiyor/rcore-ext)
 [![Dependency Status](https://gemnasium.com/hbakhtiyor/rcore-ext.png)](https://gemnasium.com/hbakhtiyor/rcore-ext)
+[![Build Status](https://travis-ci.org/hbakhtiyor/rcore-ext.png?branch=master)](https://travis-ci.org/hbakhtiyor/rcore-ext)
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hbakhtiyor/rcore-ext/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 The `rcore_ext` gem extends several core classes
