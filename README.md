@@ -1,5 +1,6 @@
 # Ruby Core Extensions
 
+[![Gem Version](https://badge.fury.io/rb/rcore-ext.png)](http://badge.fury.io/rb/rcore-ext)
 [![Coverage Status](https://coveralls.io/repos/hbakhtiyor/rcore-ext/badge.png)](https://coveralls.io/r/hbakhtiyor/rcore-ext)
 [![Code Climate](https://codeclimate.com/github/hbakhtiyor/rcore-ext.png)](https://codeclimate.com/github/hbakhtiyor/rcore-ext)
 [![Dependency Status](https://gemnasium.com/hbakhtiyor/rcore-ext.png)](https://gemnasium.com/hbakhtiyor/rcore-ext)
